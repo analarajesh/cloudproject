@@ -34,7 +34,7 @@ $sql="INSERT INTO signup VALUES('$_POST[ID]','$_POST[USN]','$_POST[Email]','$_PO
         //$stmt->bindValue(':company', $company);
         
         // execute the insert statement
-        $stmt->execute();
+      //  $stmt->execute();
         
         // return generated id
        // return $this->pdo->lastInsertId('stocks_id_seq');
