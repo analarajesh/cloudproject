@@ -38,6 +38,7 @@ $result=pg_query($query);
         
         // return generated id
        // return $this->pdo->lastInsertId('stocks_id_seq');
+}
 
 
 ?>
