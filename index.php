@@ -25,9 +25,20 @@ catch(PDOException $e)
 }
 if (isset($_POST['submit']))
 {
-$query="INSERT INTO signup VALUES('$_POST[ID]','$_POST[USN]','$_POST[Email]','$_POST[Password]')";
-$result=pg_query($query);
-}
+$sql="INSERT INTO signup VALUES('$_POST[ID]','$_POST[USN]','$_POST[Email]','$_POST[Password]')";
+//$result=pg_query($query);
+ $stmt = $this->pdo->prepare($sql);
+        
+        // pass values to the statement
+        //$stmt->bindValue(':symbol', $symbol);
+        //$stmt->bindValue(':company', $company);
+        
+        // execute the insert statement
+        $stmt->execute();
+        
+        // return generated id
+       // return $this->pdo->lastInsertId('stocks_id_seq');
+
 
 ?>
 
