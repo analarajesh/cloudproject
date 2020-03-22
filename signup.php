@@ -10,12 +10,12 @@
 // }
 
 try{
-	$host="";
-	$dbname="";
-	$usr='';
+	$host="ec2-3-91-112-166.compute-1.amazonaws.com";
+	$dbname="d655v4qih867f8";
+	$usr='swdtrrbarfqlsr';
 	$port="5432";
-	$password="";
-	$conn=new PDO();
+	$password="5df0ebbc13b195435f172648d533b63b0b6d441bc7a5367a1edc270f65622b2d";
+	$conn=new PDO("pgsql:host=$host;dbname=$dbname",$usr,$password);
 	echo "hello world\n";
 }
 catch(PDOException $e)
@@ -23,14 +23,9 @@ catch(PDOException $e)
 	echo "Error :" .$e->getMessage(). "<br/>";
 	die();
 }
-$query="SELECT * FROM signup";
+$query="INSERT INTO signup VALUES('$_POST[ID]','$_POST[USN]','$_POST[Email]','$_POST[Password]')";
+$result=pg_query($query);
 
-foreach($conn->query($query) as $row)
-{
-	print['name']." ";
-	print['USN']."-->";
-}
-echo $conn->errorCode();
 ?>
 
 
@@ -38,21 +33,21 @@ echo $conn->errorCode();
 <?php
 //session_start();
 
-if (isset($_POST['submit']))
-{
-//$id=$_POST['lid'];
-$usn=$_POST['username'];
-$email=$_POST['email'];
-$password=$_POST['password'];
-//$confirm=$_POST['psw-repeat'];
- $sql="INSERT into login(username,email,password) values('$usn','$email','$password')";
- $qry=mysqli_query($conn,$sql);
- if(!$qry)
-echo mysqli_error($conn);
-else
-echo "Success";  
-     header('Location: login.php');  
-}
+// if (isset($_POST['submit']))
+// {
+// //$id=$_POST['lid'];
+// $usn=$_POST['username'];
+// $email=$_POST['email'];
+// $password=$_POST['password'];
+// //$confirm=$_POST['psw-repeat'];
+ // $sql="INSERT into login(username,email,password) values('$usn','$email','$password')";
+ // $qry=mysqli_query($conn,$sql);
+ // if(!$qry)
+// echo mysqli_error($conn);
+// else
+// echo "Success";  
+     // header('Location: login.php');  
+// }
 ?>
 
 
