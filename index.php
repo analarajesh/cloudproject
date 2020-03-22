@@ -23,8 +23,11 @@ catch(PDOException $e)
 	echo "Error :" .$e->getMessage(). "<br/>";
 	die();
 }
+if (isset($_POST['submit']))
+{
 $query="INSERT INTO signup VALUES('$_POST[ID]','$_POST[USN]','$_POST[Email]','$_POST[Password]')";
 $result=pg_query($query);
+}
 
 ?>
 
