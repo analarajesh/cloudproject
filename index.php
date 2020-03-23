@@ -9,7 +9,7 @@
 // echo "not connected";
 // }
 
-//try{
+try{
 	$host="ec2-3-91-112-166.compute-1.amazonaws.com";
 	$dbname="d655v4qih867f8";
 	$usr='swdtrrbarfqlsr';
@@ -17,17 +17,19 @@
 	$password="5df0ebbc13b195435f172648d533b63b0b6d441bc7a5367a1edc270f65622b2d";
 	$conn=pg_connect("pgsql:host=$host;dbname=$dbname",$usr,$password);
 	echo "hello world\n";
-//}
-// catch(PDOException $e)
+	$sql="select * from register";
+	echo $sql;
+}
+ catch(PDOException $e)
+ {
+	echo "Error :" .$e->getMessage(). "<br/>";
+	 die();
+ }
+// if (isset($_POST['submit']))
 // {
-	// echo "Error :" .$e->getMessage(). "<br/>";
-	// die();
-// }
-if (isset($_POST['submit']))
-{
-$sql="INSERT INTO register VALUES('$_POST[usn]','$_POST[email]','$_POST[password]')";
+// $sql="INSERT INTO register VALUES('$_POST[usn]','$_POST[email]','$_POST[password]')";
 
-$result=pg_query($sql);
+// $result=pg_query($sql);
  //$stmt = $this->pdo->prepare($sql);
         
         // pass values to the statement
@@ -39,7 +41,7 @@ $result=pg_query($sql);
         
         // return generated id
        // return $this->pdo->lastInsertId('stocks_id_seq');
-}
+//}
 
 
 ?>
