@@ -18,7 +18,7 @@ try{
 	$conn=pg_connect("pgsql:host=$host;dbname=$dbname",$usr,$password);
 	echo "hello world\n";
 	$sql="select * from register";
-	echo $sql;
+	//echo $sql;
 }
  catch(PDOException $e)
  {
