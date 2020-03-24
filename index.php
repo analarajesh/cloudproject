@@ -10,26 +10,22 @@ try{
 
 	$conn=new PDO("pgsql:host=$host;dbname=$dbname",$usr,$password);
 	
-
-
-
-
 }
  catch(PDOException $e)
  {
 	echo "Error :" .$e->getMessage(). "<br/>";
 	 die();
  }
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	  if (isset($_POST['submit']))
       {
        $sql="INSERT INTO register VALUES('$_POST[usn]','$_POST[email]','$_POST[password]')";
-         $conn->exec($sql);
+	    $result=pg_query($sql);
+
 	  }
  //$conn = null;
 
  //
-// $result=pg_query($sql);
+//
  
 //}
 
