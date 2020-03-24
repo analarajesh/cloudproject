@@ -1,11 +1,12 @@
  <?php
-	$host="ec2-3-91-112-166.compute-1.amazonaws.com";
+
+
+try{
+	 $host="ec2-3-91-112-166.compute-1.amazonaws.com";
 	$dbname="d655v4qih867f8";
 	$usr='swdtrrbarfqlsr';
 	$port="5432";
 	$password="5df0ebbc13b195435f172648d533b63b0b6d441bc7a5367a1edc270f65622b2d";
-
-try{
 
 	$conn=new PDO("pgsql:host=$host;dbname=$dbname",$usr,$password);
 	 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
