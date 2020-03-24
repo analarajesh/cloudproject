@@ -25,7 +25,7 @@ try{
 	echo "Error :" .$e->getMessage(). "<br/>";
 	 die();
  }
- $conn = null;
+ //$conn = null;
 
  //
 // $result=pg_query($sql);
