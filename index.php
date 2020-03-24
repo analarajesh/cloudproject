@@ -9,12 +9,7 @@ try{
 	$password="5df0ebbc13b195435f172648d533b63b0b6d441bc7a5367a1edc270f65622b2d";
 
 	$conn=new PDO("pgsql:host=$host;dbname=$dbname",$usr,$password);
-	// $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	  if (isset($_POST['submit']))
-      {
-       $sql="INSERT INTO register VALUES('$_POST[usn]','$_POST[email]','$_POST[password]')";
-         $conn->exec($sql);
-	  }
+	
 
 
 
@@ -25,6 +20,12 @@ try{
 	echo "Error :" .$e->getMessage(). "<br/>";
 	 die();
  }
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	  if (isset($_POST['submit']))
+      {
+       $sql="INSERT INTO register VALUES('$_POST[usn]','$_POST[email]','$_POST[password]')";
+         $conn->exec($sql);
+	  }
  //$conn = null;
 
  //
