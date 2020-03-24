@@ -1,56 +1,34 @@
  <?php
-// $conn=mysqli_connect("localhost","root","");
-// $db=mysqli_select_db($conn,"stud");
-// if($db)
-// {
-// echo "connected succesfully";
-// }
-// else{
-// echo "not connected";
-// }
-
-try{
 	$host="ec2-3-91-112-166.compute-1.amazonaws.com";
 	$dbname="d655v4qih867f8";
 	$usr='swdtrrbarfqlsr';
 	$port="5432";
 	$password="5df0ebbc13b195435f172648d533b63b0b6d441bc7a5367a1edc270f65622b2d";
+
+try{
+
 	$conn=new PDO("pgsql:host=$host;dbname=$dbname",$usr,$password);
-	echo "hello world\n";
+	 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	  if (isset($_POST['submit']))
+      {
+       $sql="INSERT INTO register VALUES('$_POST[usn]','$_POST[email]','$_POST[password]')";
+         $conn->exec($sql);
+	  }
 
 
-	//echo $result;
+
+
 }
  catch(PDOException $e)
  {
 	echo "Error :" .$e->getMessage(). "<br/>";
 	 die();
  }
- 	$query = "SELECT * FROM register";
-	foreach($conn->query($query) as $row)
-	{
-		print $row['usn'];." ";
-		print $row['email']."-->";
-	}
-	echo $conn->errorCode();
- // if (isset($_POST['submit']))
- // {
- // $sql="INSERT INTO register VALUES('$_POST[usn]','$_POST[email]','$_POST[password]')";
+ $conn = null;
 
+ //
 // $result=pg_query($sql);
- //$stmt = $this->pdo->prepare($sql);
-        
-        // pass values to the statement
-        //$stmt->bindValue(':symbol', $symbol);
-        //$stmt->bindValue(':company', $company);
-        
-        // execute the insert statement
-        //$stmt->execute();
-		//if(!stmt)
-//echo $conn-
-        
-        // return generated id
-       // return $this->pdo->lastInsertId('stocks_id_seq');
+ 
 //}
 
 
@@ -59,7 +37,7 @@ try{
 
 
 <?php
-//session_start();
+/* //session_start(); */
 
 // if (isset($_POST['submit']))
 // {
