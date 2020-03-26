@@ -5,7 +5,6 @@
 	$usr='swdtrrbarfqlsr';
 	$port="5432";
 	$password="5df0ebbc13b195435f172648d533b63b0b6d441bc7a5367a1edc270f65622b2d";
-
 	$conn=pg_connect("host=$host dbname=$dbname user=$usr port=$port password=$password");
 	
 	if(!$conn)
@@ -22,7 +21,7 @@
 		  $email=$_POST['email'];
 		  $password=$_POST['password'];
          $sql="INSERT INTO register (usn,email,password) values('$usn','$email','$password')";
-	    $result=pg_query($sql);
+	    $result=pg_query($conn,$sql);
 		
 		if(!$result)
 			echo "error";
