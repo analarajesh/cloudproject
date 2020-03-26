@@ -8,7 +8,7 @@
 
 	$conn=pg_connect("pgsql:host=$host;dbname=$dbname",$usr,$password);
 	
-}
+
 
 	  if (isset($_POST['submit']))
       {
