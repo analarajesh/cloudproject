@@ -1,33 +1,29 @@
  <?php
 
-
-try{
 	 $host="ec2-3-91-112-166.compute-1.amazonaws.com";
 	$dbname="d655v4qih867f8";
 	$usr='swdtrrbarfqlsr';
 	$port="5432";
 	$password="5df0ebbc13b195435f172648d533b63b0b6d441bc7a5367a1edc270f65622b2d";
 
-	$conn=new PDO("pgsql:host=$host;dbname=$dbname",$usr,$password);
+	$conn=pg_connect("pgsql:host=$host;dbname=$dbname",$usr,$password);
 	
 }
- catch(PDOException $e)
- {
-	echo "Error :" .$e->getMessage(). "<br/>";
-	 die();
- }
+
 	  if (isset($_POST['submit']))
       {
-       $sql="INSERT INTO register VALUES('$_POST[usn]','$_POST[email]','$_POST[password]')";
+		  $usn=$_POST['usn'];
+		  $email=$_POST['email'];
+		  $password=$_POST['password'];
+         $sql="INSERT INTO register (usn,email,password) values('$usn','$email','$password')";
 	    $result=pg_query($sql);
+		
+		if(!$result)
+			echo "error";
+		else
+            header('Location: login.php');  
 
 	  }
- //$conn = null;
-
- //
-//
- 
-//}
 
 
 ?>
