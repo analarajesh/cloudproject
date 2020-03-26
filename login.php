@@ -1,19 +1,34 @@
 <?php
-$conn=mysqli_connect("localhost","root","");
-$db=mysqli_select_db($conn,"stud");
-if($db)
-{
-echo "connected succesfully";
-}
-else{
-echo "not connected";
-}
+// $conn=mysqli_connect("localhost","root","");
+// $db=mysqli_select_db($conn,"stud");
+// if($db)
+// {
+// echo "connected succesfully";
+// }
+// else{
+// echo "not connected";
+// }
 ?>
 
 <?php
 //session_start();
 
-if (isset($_POST['login']))
+$host="ec2-3-91-112-166.compute-1.amazonaws.com";
+	$dbname="d655v4qih867f8";
+	$usr='swdtrrbarfqlsr';
+	$port="5432";
+	$password="5df0ebbc13b195435f172648d533b63b0b6d441bc7a5367a1edc270f65622b2d";
+
+	$conn=pg_connect("pgsql:host=$host;dbname=$dbname",$usr,$password);
+	
+	if(!$conn)
+	{
+		echo "error";
+		exit;
+	}
+	
+
+if (isset($_POST['register']))
 {
 
 //mysqli_connect('localhost','root','') or die(mysqli_error());
@@ -22,8 +37,8 @@ if (isset($_POST['login']))
      $password=$_POST['password'];
 if($usn!=''&&$password!='')
  {
-   $query=mysqli_query($conn,"select * from login where username='".$usn."' and password='".$password."'") or die(mysqli_error());
-   $res=mysqli_fetch_row($query);
+   $query=pg_query($conn,"select * from register where username='".$usn."' and password='".$password."'");
+   $res=pg_fetch_row($query);
    if($res)
    {
     $_SESSION['username']=$usn;
