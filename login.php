@@ -36,7 +36,7 @@ if (isset($_POST['submit']))
      $password=$_POST['password'];
 if($usn!=''&&$password!='')
  {
-   $query="select * from register where usn='".$usn."' and password='".$password."'";
+   $query="select * from sign where usn='".$usn."' and password='".$password."'";
    $res=pg_query($conn,$query);
    if($res)
    {

@@ -20,7 +20,7 @@
 		  $usn=$_POST['usn'];
 		  $email=$_POST['email'];
 		  $password=$_POST['password'];
-         $sql="INSERT INTO register (usn,email,password) values('$usn','$email','$password')";
+         $sql="INSERT INTO sign (usn,email,password) values('$usn','$email','$password')";
 	    $result=pg_query($conn,$sql);
 		
 		if(!$result)
