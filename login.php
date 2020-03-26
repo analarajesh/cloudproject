@@ -37,8 +37,8 @@ if (isset($_POST['register']))
      $password=$_POST['password'];
 if($usn!=''&&$password!='')
  {
-   $query=pg_query($conn,"select * from register where usn='".$usn."' and password='".$password."'");
-   $res=pg_fetch_row($query);
+   $query="select * from register where usn='".$usn."' and password='".$password."'";
+   $res=pg_query($conn,$query);
    if($res)
    {
     $_SESSION['usn']=$usn;
