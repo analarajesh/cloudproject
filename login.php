@@ -19,7 +19,7 @@ $host="ec2-3-91-112-166.compute-1.amazonaws.com";
 	$port="5432";
 	$password="5df0ebbc13b195435f172648d533b63b0b6d441bc7a5367a1edc270f65622b2d";
 
-	$conn=pg_connect("pgsql:host=$host;dbname=$dbname",$usr,$password);
+	$conn=pg_connect("host=$host dbname=$dbname user=$usr port=$port password=$password");
 	
 	if(!$conn)
 	{
@@ -195,7 +195,7 @@ fieldset{
   <body id="body-color" style="background:url(b4.jpeg); background-repeat:no-repeat;background-size:500%500%">
 
     <div class="sidenav">
-       <br/><br/> <a href="login.html">Login</a><br/><br/>
+       <br/><br/> <a href="login.php">Login</a><br/><br/>
         <a href="http://guru.nmamit.in" target="_blank">Moodle</a><br/><br/>
         <a href="http://www.nmamit.nitte.edu.in" target="_blank">College Homepage</a><br/><br/>
       </div>
@@ -209,7 +209,7 @@ fieldset{
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="password" >
 
-  <p><b>New User?</b> <a href="signup.php"><b>Signup here</b></a></p>
+  <p><b>New User?</b> <a href="index.php"><b>Signup here</b></a></p>
 
     <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>

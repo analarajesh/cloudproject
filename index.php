@@ -6,7 +6,7 @@
 	$port="5432";
 	$password="5df0ebbc13b195435f172648d533b63b0b6d441bc7a5367a1edc270f65622b2d";
 
-	$conn=pg_connect("pgsql:host=$host;dbname=$dbname",$usr,$password);
+	$conn=pg_connect("host=$host dbname=$dbname user=$usr port=$port password=$password");
 	
 	if(!$conn)
 	{
@@ -184,7 +184,7 @@ mark1{
   <body id="body-color" style="background:url(b4.jpeg); background-repeat:no-repeat;background-size:500%500%">
 
     <div class="sidenav">
-        <br/><br/><a href="login.html">Login</a><br/><br/>
+        <br/><br/><a href="login.php">Login</a><br/><br/>
         <a href="http://guru.nmamit.in" target="_blank">Moodle</a><br/><br/>
         <a href="http://www.nmamit.nitte.edu.in" target="_blank">College Homepage</a><br/><br/>
     </div>
