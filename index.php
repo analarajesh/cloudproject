@@ -1,6 +1,19 @@
- <?php
+<?php
+// $conn=mysqli_connect("localhost","root","");
+// $db=mysqli_select_db($conn,"stud");
+// if($db)
+// {
+// echo "connected succesfully";
+// }
+// else{
+// echo "not connected";
+// }
+?>
 
-	$host="ec2-3-91-112-166.compute-1.amazonaws.com";
+<?php
+//session_start();
+
+    $host="ec2-3-91-112-166.compute-1.amazonaws.com";
 	$dbname="d655v4qih867f8";
 	$usr='swdtrrbarfqlsr';
 	$port="5432";
@@ -14,46 +27,38 @@
 	}
 	
 
+if (isset($_POST['submit']))
+{
 
-	  if (isset($_POST['submit']))
-      {
-		  $usn=$_POST['usn'];
-		  $email=$_POST['email'];
-		  $password=$_POST['password'];
-         $sql="INSERT INTO sign (usn,email,password) values('$usn','$email','$password')";
-	    $result=pg_query($conn,$sql);
-		
-		if(!$result)
-			echo "error";
-		else
-            header('Location: login.php');  
-
-	  }
-
-
-?>
-
-
-
+//mysqli_connect('localhost','root','') or die(mysqli_error());
+     //mysqli_select_db('wedding') or die(mysqli_error());
+     $usn=$_POST['usn'];
+     $password=$_POST['password'];
+if($usn!=''&&$password!='')
+ {
+   $query="select * from sign where usn='".$usn."' and password='".$password."'";
+   $res=pg_query($conn,$query);
+   if($res)
+   {
+    $_SESSION['usn']=$usn;
+  header('location:icon.php?usn='.$usn);
+    }
+   else
+   {?>
+<script>
+    alert ("Entered Username and password is incorect");
+</script>
 <?php
-/* //session_start(); */
-
-// if (isset($_POST['submit']))
-// {
-// //$id=$_POST['lid'];
-// $usn=$_POST['username'];
-// $email=$_POST['email'];
-// $password=$_POST['password'];
-// //$confirm=$_POST['psw-repeat'];
- // $sql="INSERT into login(username,email,password) values('$usn','$email','$password')";
- // $qry=mysqli_query($conn,$sql);
- // if(!$qry)
-// echo mysqli_error($conn);
-// else
-// echo "Success";  
-     // header('Location: login.php');  
-// }
+   }
+ }
+ else
+ {
+  echo'Enter both username and password';
+ }
+}
 ?>
+
+
 
 
 <!DOCTYPE html>
@@ -115,6 +120,7 @@ button:hover {
   padding: 16px;
   width:500px;
   margin-left:750px;
+  margin-top:1%;
 }
 
 .f1{
@@ -179,39 +185,43 @@ mark1{
   background:snow;
 }
 
+fieldset{
+    background-color:snow;
+    opacity:0.9;
+}
+
 </style>
   <body id="body-color" style="background:url(b4.jpeg); background-repeat:no-repeat;background-size:500%500%">
 
     <div class="sidenav">
-        <br/><br/><a href="login.php">Login</a><br/><br/>
+       <br/><br/> <a href="index.php">Login</a><br/><br/>
         <a href="http://guru.nmamit.in" target="_blank">Moodle</a><br/><br/>
         <a href="http://www.nmamit.nitte.edu.in" target="_blank">College Homepage</a><br/><br/>
-    </div>
+      </div>
 
 <form action="" method="POST">
   <div class="container"></div>
-    <fieldset class="f1"><legend><b><h1>SIGNUP</h1></b></legend><br/><br/>
-
+    <fieldset class="f1"><legend><b><h1>LOGIN</h1></b></legend><br/><br/>
     <label for="usn"><b>USN</b></label>
-    <input type="text" placeholder="Enter USN" name="username" required>
-
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
+    <input type="text" placeholder="Enter USN" name="username" >
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required>
+    <input type="password" placeholder="Enter Password" name="password" >
 
-    <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-
-  <p><b>Already Registered?</b><a href="login.php"> <b>Login</b></a></p>
+  <p><b>New User?</b> <a href="signup.php"><b>Signup here</b></a></p>
 
     <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
-      <button type="submit" name="submit" class="signupbtn" >Sign Up</button>
+     <button type="submit" name="login" class="signupbtn" >Login</button>
     </div>
     </fieldset>
 </form>
-
+  <!--<script>
+    function go()
+    {
+      window.location.assign('icon.html');
+    }
+    </script>!-->
+ 
 </body>
 </html>

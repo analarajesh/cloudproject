@@ -1,37 +1,42 @@
  <?php
-// $conn=mysqli_connect("localhost","root","");
-// $db=mysqli_select_db($conn,"stud");
-// if($db)
-// {
-// echo "connected succesfully";
-// }
-// else{
-// echo "not connected";
-// }
 
-try{
 	$host="ec2-3-91-112-166.compute-1.amazonaws.com";
 	$dbname="d655v4qih867f8";
 	$usr='swdtrrbarfqlsr';
 	$port="5432";
 	$password="5df0ebbc13b195435f172648d533b63b0b6d441bc7a5367a1edc270f65622b2d";
-	$conn=new PDO("pgsql:host=$host;dbname=$dbname",$usr,$password);
-	echo "hello world\n";
-}
-catch(PDOException $e)
-{
-	echo "Error :" .$e->getMessage(). "<br/>";
-	die();
-}
-$query="INSERT INTO signup VALUES('$_POST[ID]','$_POST[USN]','$_POST[Email]','$_POST[Password]')";
-$result=pg_query($query);
+	$conn=pg_connect("host=$host dbname=$dbname user=$usr port=$port password=$password");
+	
+	if(!$conn)
+	{
+		echo "error";
+		exit;
+	}
+	
+
+
+	  if (isset($_POST['submit']))
+      {
+		  $usn=$_POST['usn'];
+		  $email=$_POST['email'];
+		  $password=$_POST['password'];
+         $sql="INSERT INTO sign (usn,email,password) values('$usn','$email','$password')";
+	    $result=pg_query($conn,$sql);
+		
+		if(!$result)
+			echo "error";
+		else
+            header('Location: index.php');  
+
+	  }
+
 
 ?>
 
 
 
 <?php
-//session_start();
+/* //session_start(); */
 
 // if (isset($_POST['submit']))
 // {
@@ -178,7 +183,7 @@ mark1{
   <body id="body-color" style="background:url(b4.jpeg); background-repeat:no-repeat;background-size:500%500%">
 
     <div class="sidenav">
-        <br/><br/><a href="login.html">Login</a><br/><br/>
+        <br/><br/><a href="login.php">Login</a><br/><br/>
         <a href="http://guru.nmamit.in" target="_blank">Moodle</a><br/><br/>
         <a href="http://www.nmamit.nitte.edu.in" target="_blank">College Homepage</a><br/><br/>
     </div>
