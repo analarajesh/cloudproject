@@ -33,16 +33,16 @@ if (isset($_POST['register']))
 
 //mysqli_connect('localhost','root','') or die(mysqli_error());
      //mysqli_select_db('wedding') or die(mysqli_error());
-     $usn=$_POST['username'];
+     $usn=$_POST['usn'];
      $password=$_POST['password'];
 if($usn!=''&&$password!='')
  {
-   $query=pg_query($conn,"select * from register where username='".$usn."' and password='".$password."'");
+   $query=pg_query($conn,"select * from register where usn='".$usn."' and password='".$password."'");
    $res=pg_fetch_row($query);
    if($res)
    {
-    $_SESSION['username']=$usn;
-  header('location:icon.php?username='.$usn);
+    $_SESSION['usn']=$usn;
+  header('location:icon.php?usn='.$usn);
     }
    else
    {?>

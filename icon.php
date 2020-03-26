@@ -26,7 +26,7 @@ $host="ec2-3-91-112-166.compute-1.amazonaws.com";
 ?>
 
 <?php
-$usn=$_GET['username'];
+$usn=$_GET['usn'];
 ?>
 
 
@@ -83,14 +83,14 @@ background:cornflowerblue;
 
 <body id="body-color" style="background:url(b4.jpeg); background-repeat:no-repeat;background-size:500% 500%" >
 
-    <a href="attendance.php?username=<?php echo $usn?>">
+    <a href="attendance.php?usn=<?php echo $usn?>">
         <img src="att.jpg" alt="Attendance" style="width:450px;height:400px;border:0;">
       </a>
       <b><mark class="a1">ATTENDANCE</mark></b>
 
 
  
-     <a href="report.php?username=<?php echo $usn?>">
+     <a href="report.php?usn=<?php echo $usn?>">
         <img src="rep.png" alt="Report"  style="width:450px;height:360px;border:0; margin-right: 10%; margin-left: 10%;">
       </a>
 
