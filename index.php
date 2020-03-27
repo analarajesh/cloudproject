@@ -27,7 +27,7 @@
 	}
 	
 
-if (isset($_POST['submit']))
+if (isset($_POST['login']))
 {
 
 //mysqli_connect('localhost','root','') or die(mysqli_error());

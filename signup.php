@@ -1,4 +1,13 @@
  <?php
+ // $conn=mysqli_connect("localhost","root","");
+// $db=mysqli_select_db($conn,"stud");
+// if($db)
+// {
+// echo "connected succesfully";
+// }
+// else{
+// echo "not connected";
+// }
 
 	$host="ec2-3-91-112-166.compute-1.amazonaws.com";
 	$dbname="d655v4qih867f8";
