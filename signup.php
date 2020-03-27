@@ -26,7 +26,7 @@
 
 	  if (isset($_POST['submit']))
       {
-		  $username=$_POST['usn'];
+		  $username=$_POST['username'];
 		  $email=$_POST['email'];
 		  $password=$_POST['password'];
          $sql="INSERT INTO sign (usn,email,password) values('$username','$email','$password')";

@@ -32,7 +32,7 @@ if (isset($_POST['login']))
 
 //mysqli_connect('localhost','root','') or die(mysqli_error());
      //mysqli_select_db('wedding') or die(mysqli_error());
-     $usn=$_POST['usn'];
+     $usn=$_POST['username'];
      $password=$_POST['password'];
 if($usn!=''&&$password!='')
  {
