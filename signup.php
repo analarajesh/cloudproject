@@ -26,7 +26,7 @@
 
 	  if (isset($_POST['submit']))
       {
-		  $usn=$_POST['usn'];
+		  $username=$_POST['usn'];
 		  $email=$_POST['email'];
 		  $password=$_POST['password'];
          $sql="INSERT INTO sign (usn,email,password) values('$usn','$email','$password')";
@@ -213,7 +213,7 @@ mark1{
     <label for="psw-repeat"><b>Repeat Password</b></label>
     <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
 
-  <p><b>Already Registered?</b><a href="login.php"> <b>Login</b></a></p>
+  <p><b>Already Registered?</b><a href="index.php"> <b>Login</b></a></p>
 
     <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
