@@ -152,7 +152,7 @@ th, td {
         <a href="index.php">Logout</a> 
         <a href="icon.php">Back</a>
         <div class="dropdown">
-          <button class="dropbtn">View
+          <!--<button class="dropbtn">View
             <i class="fa fa-caret-down"></i>
           </button>
           <div class="dropdown-content">
@@ -164,7 +164,7 @@ th, td {
             <a href="#">Sem 6</a>
             <a href="#">Sem 7</a>
             <a href="#">Sem 8</a>
-          </div>
+          </div>-->
         </div> 
       </div>
       

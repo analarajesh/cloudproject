@@ -151,7 +151,7 @@ $host="ec2-3-91-112-166.compute-1.amazonaws.com";
 <body id="body-color" style="background:url(b4.jpeg); background-repeat:no-repeat;background-size:500%500%">
 
     <div class="navbar">
-        <a href="login.php">Logout</a> 
+        <a href="index.php">Logout</a> 
         <a href="icon.php">Back</a>
         <div class="dropdown">
           <!-- <button class="dropbtn">View
