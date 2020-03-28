@@ -1,25 +1,30 @@
 <?php
-$conn=mysqli_connect("localhost","root","");
-$db=mysqli_select_db($conn,"stud");
-if($db)
-{
-echo "connected succesfully";
-}
-else{
-echo "not connected";
-}
+$host="ec2-3-91-112-166.compute-1.amazonaws.com";
+	$dbname="d655v4qih867f8";
+	$usr='swdtrrbarfqlsr';
+	$port="5432";
+	$password="5df0ebbc13b195435f172648d533b63b0b6d441bc7a5367a1edc270f65622b2d";
+
+	$conn=pg_connect("host=$host dbname=$dbname user=$usr port=$port password=$password");
+	
+	if(!$conn)
+	{
+		echo "error";
+		exit;
+	}
 ?>
 
+
 <?php
-    if(isset($_GET['username'])){
-      $usn = $_GET['username'];
+    if(isset($_GET['usn'])){
+      $usn = $_GET['usn'];
  }else{
       $usn = "USN not set in GET Method";
  }
 
-  $query = "SELECT * FROM att where username='$usn';";
-  $result=mysqli_query($conn,$query);
-  $resultcheck=mysqli_num_rows($result);
+  $query = "SELECT * FROM att where usn='$usn';";
+  $result=pg_query($conn,$query);
+  $resultcheck=pg_num_rows($result);
 
   ?>
 
@@ -169,7 +174,6 @@ echo "not connected";
 
 <table id="customers">
   <tr>
-    <th>Username</th>
     <th>Subject</th>
     <th>Classes Held</th>
     <th>Classes Attended</th>
@@ -181,12 +185,11 @@ echo "not connected";
 
  
   if(($resultcheck)>0){
-  while($rows=mysqli_fetch_assoc($result))
+  while($rows=pg_fetch_assoc($result))
   {
    ?>
    
   <tr>
-    <td><?php echo $rows['username'];?></td>
     <td><?php echo $rows['sub'];?></td>
     <td><?php echo $rows['class'];?></td>
     <td><?php echo $rows['classatt'];?></td>
@@ -197,57 +200,7 @@ echo "not connected";
   ?>
     
   </tr>
-  <!--<tr>
-    <td> </td>
-    <td> </td>
-    <td> </td>
-    <td> </td>
-  </tr>
-
-  <tr>
-    <td> </td>
-    <td> </td>
-    <td> </td>
-    <td> </td>
-  </tr>
-
-  <tr>
-    <td> </td>
-    <td> </td>
-    <td> </td>
-    <td> </td>
-  </tr>
-
-  <tr>
-    <td> </td>
-    <td> </td>
-    <td> </td>
-    <td> </td>
-  </tr>
   
-  <tr>
-    <td> </td>
-    <td> </td>
-    <td> </td>
-    <td> </td>
-  </tr>
-
-  <tr>
-    <td> </td>
-    <td> </td>
-    <td> </td>
-    <td> </td>
-  </tr>--!>
-    
-</table>
-<!-- <button  class="b2" type="submit" name="submit" onclick="go()"><b>Back</b></button><br/><br/><br/>
-
-<script>
-  function go()
-  {
-    window.location.assign('icon.html');
-  }
-  </script> -->
 
 </body>
 </html>
