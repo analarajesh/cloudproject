@@ -190,7 +190,7 @@ th, td {
    ?>
    
   <tr>
-    <td><?php echo $rows['usn'];?></td>
+    <td><?php echo $rows['coursename'];?></td>
     <td><?php echo $rows['code'];?></td>
     <td><?php echo $rows['cie'];?></td>
     <td><?php echo $rows['see'];?></td>
