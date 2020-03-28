@@ -1,36 +1,33 @@
 <?php
-$conn=mysqli_connect("localhost","root","");
-$db=mysqli_select_db($conn,"stud");
-if($db)
-{
-echo "connected succesfully";
-}
-else{
-echo "not connected";
-}
+$host="ec2-3-91-112-166.compute-1.amazonaws.com";
+	$dbname="d655v4qih867f8";
+	$usr='swdtrrbarfqlsr';
+	$port="5432";
+	$password="5df0ebbc13b195435f172648d533b63b0b6d441bc7a5367a1edc270f65622b2d";
+
+	$conn=pg_connect("host=$host dbname=$dbname user=$usr port=$port password=$password");
+	
+	if(!$conn)
+	{
+		echo "error";
+		exit;
+	}
 ?>
 
 
 <?php
-    if(isset($_GET['username'])){
-      $usn = $_GET['username'];
+    if(isset($_GET['usn'])){
+      $usn = $_GET['usn'];
  }else{
       $usn = "USN not set in GET Method";
  }
 
-  $query = "SELECT * FROM report where username='$usn';";
-  $result=mysqli_query($conn,$query);
-  $resultcheck=mysqli_num_rows($result);
+  $query = "SELECT * FROM report where usn='$usn';";
+  $result=pg_query($conn,$query);
+  $resultcheck=pg_num_rows($result);
 
   ?>
   
-
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html>
@@ -152,7 +149,7 @@ th, td {
 <body>
     <body id="body-color" style="background:url(b4.jpeg); background-repeat:no-repeat;background-size:500% 500%" ></body>
     <div class="navbar">
-        <a href="login.php">Logout</a> 
+        <a href="index.php">Logout</a> 
         <a href="icon.php">Back</a>
         <div class="dropdown">
           <button class="dropbtn">View
@@ -188,12 +185,12 @@ th, td {
 
  
   if(($resultcheck)>0){
-  while($rows=mysqli_fetch_assoc($result))
+  while($rows=pg_fetch_assoc($result))
   {
    ?>
    
   <tr>
-    <td><?php echo $rows['username'];?></td>
+    <td><?php echo $rows['usn'];?></td>
     <td><?php echo $rows['code'];?></td>
     <td><?php echo $rows['cie'];?></td>
     <td><?php echo $rows['see'];?></td>
@@ -205,62 +202,6 @@ th, td {
   ?>
     
   </tr>
-
- <!-- <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-   
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    
-  </tr>-->
-  
 
 </table>
 

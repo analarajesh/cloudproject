@@ -1,14 +1,3 @@
-<?php
-// $conn=mysqli_connect("localhost","root","");
-// $db=mysqli_select_db($conn,"stud");
-// if($db)
-// {
-// echo "connected succesfully";
-// }
-// else{
-// echo "not connected";
-// }
-?>
 
 <?php
 //session_start();
