@@ -151,7 +151,6 @@ th, td {
     <div class="navbar">
         <a href="index.php">Logout</a> 
 		<a href="icon.php?username=<?php echo $usn?>">Back</a>
-        <a href="icon.php">Back</a>
         <div class="dropdown">
           <!--<button class="dropbtn">View
             <i class="fa fa-caret-down"></i>
