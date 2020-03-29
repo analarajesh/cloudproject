@@ -29,7 +29,7 @@ if(isset($_POST['submit']))
   $result=pg_query($conn,$query);
         
         //redirectig to the display page. In our case, it is index.php
-      header("Location:view.php?username=$usn");
+      header("Location:view.php?usn=$usn");
     
 }
 ?>
