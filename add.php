@@ -24,13 +24,13 @@ $sub=$_POST['sub'];
 $held=$_POST['held'];
 $attend=$_POST['att'];
 $percent=$_POST['per'];
- $sql="INSERT into att(username,sub,class,classatt,percentage) values('$usn','$sub','$held','$attend','$percent')";
+ $sql="INSERT into att(usn,sub,class,classatt,percentage) values('$usn','$sub','$held','$attend','$percent')";
  $qry=pg_query($conn,$sql);
  if(!$qry)
 echo "Error";
 else
-  $_SESSION['username']=$usn;
-  header('location:view.php?username='.$usn);
+  $_SESSION['usn']=$usn;
+  header('location:view.php?usn='.$usn);
 echo "Success";  
 }
 

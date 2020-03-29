@@ -21,8 +21,8 @@ if (isset($_POST['submit']))
 {
 $usn=$_POST['usn'];
 
-  $_SESSION['username']=$usn;
-  header('location:view.php?username='.$usn);
+  $_SESSION['usn']=$usn;
+  header('location:view.php?usn='.$usn);
 //echo "Success";  
 }
 

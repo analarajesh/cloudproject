@@ -117,12 +117,12 @@ color:blue ;
 </thead>
   </tr>
   <?php
-  if(isset($_GET['username'])){
-      $usn = $_GET['username']; 
+  if(isset($_GET['usn'])){
+      $usn = $_GET['usn']; 
  }else{
       $usn = "USN not set in GET Method";
  }
-  $query = "SELECT * FROM att where username='$usn';";
+  $query = "SELECT * FROM att where usn='$usn';";
   $result=pg_query($conn,$query);
   $resultcheck=pg_num_rows($result);
 
