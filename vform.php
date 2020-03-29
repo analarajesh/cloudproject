@@ -1,6 +1,7 @@
- <?php
+<?php
+//session_start();
 
-	$host="ec2-3-91-112-166.compute-1.amazonaws.com";
+    $host="ec2-3-91-112-166.compute-1.amazonaws.com";
 	$dbname="d655v4qih867f8";
 	$usr='swdtrrbarfqlsr';
 	$port="5432";
@@ -12,52 +13,27 @@
 		echo "error";
 		exit;
 	}
-	
-
-
-	  if (isset($_POST['submit']))
-      {
-		  $username=$_POST['username'];
-		  $email=$_POST['email'];
-		  $password=$_POST['password'];
-         $sql="INSERT INTO sign (usn,email,password) values('$username','$email','$password')";
-	    $result=pg_query($conn,$sql);
-		
-		if(!$result)
-			echo "error";
-		else
-            header('Location: index.php');  
-
-	  }
-
-
-?>
-
-
+	?>
 
 <?php
-/* //session_start(); */
 
-// if (isset($_POST['submit']))
-// {
-// //$id=$_POST['lid'];
-// $usn=$_POST['username'];
-// $email=$_POST['email'];
-// $password=$_POST['password'];
-// //$confirm=$_POST['psw-repeat'];
- // $sql="INSERT into login(username,email,password) values('$usn','$email','$password')";
- // $qry=mysqli_query($conn,$sql);
- // if(!$qry)
-// echo mysqli_error($conn);
-// else
-// echo "Success";  
-     // header('Location: login.php');  
-// }
+if (isset($_POST['submit']))
+{
+$usn=$_POST['usn'];
+
+  $_SESSION['username']=$usn;
+  header('location:view.php?username='.$usn);
+//echo "Success";  
+}
+
 ?>
-
 
 <!DOCTYPE html>
 <html>
+
+<head>
+
+
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box}
@@ -120,6 +96,7 @@ button:hover {
 .f1{
     width:500px;
     margin-left:750px;
+margin-top:-3%;
 }
 
 /* Clear floats */
@@ -172,46 +149,39 @@ button:hover {
 }
 
 mark{
-  background:white;
+background:white;
 }
 
 mark1{
-  background:snow;
+background:snow;
 }
 
 </style>
+</head>
   <body id="body-color" style="background:url(b4.jpeg); background-repeat:no-repeat;background-size:500%500%">
 
-    <div class="sidenav">
-        <br/><br/><a href="index.php">Login</a><br/><br/>
+<div class="sidenav">
+       <br/><br/> <a href="alogin.php">Logout</a><br/><br/>
         <a href="http://guru.nmamit.in" target="_blank">Moodle</a><br/><br/>
         <a href="http://www.nmamit.nitte.edu.in" target="_blank">College Homepage</a><br/><br/>
-    </div>
+      </div>
 
 <form action="" method="POST">
   <div class="container"></div>
-    <fieldset class="f1"><legend><b><h1>SIGNUP</h1></b></legend><br/><br/>
+    <fieldset class="f1"><legend><b><h1>VIEW DATA</h1></b></legend><br/><br/>
 
-    <label for="usn"><b>USN</b></label>
-    <input type="text" placeholder="Enter USN" name="username" required>
-
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required>
-
-    <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-
-  <p><b>Already Registered?</b><a href="index.php"> <b>Login</b></a></p>
+<label for="usn"><b>USN</b></label>
+    <input type="text" placeholder="Enter USN" name="usn"  required>
 
     <div class="clearfix">
-      <button type="button" class="cancelbtn">Cancel</button>
-      <button type="submit" name="submit" class="signupbtn" >Sign Up</button>
+      <button type="submit" name="submit" class="signupbtn">Submit</button>
+	   <button type="button" class="cancelbtn" name="view" onClick="document.location='add.php'">Back</button>
+
     </div>
+
     </fieldset>
 </form>
+
 
 </body>
 </html>

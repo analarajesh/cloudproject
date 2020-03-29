@@ -150,6 +150,7 @@ th, td {
     <body id="body-color" style="background:url(b4.jpeg); background-repeat:no-repeat;background-size:500% 500%" ></body>
     <div class="navbar">
         <a href="index.php">Logout</a> 
+		<a href="icon.php?username=<?php echo $usn?>">Back</a>
         <a href="icon.php">Back</a>
         <div class="dropdown">
           <!--<button class="dropbtn">View
