@@ -69,7 +69,7 @@ $result = pg_query($conn, "SELECT * FROM att WHERE id='$id'");
   while($rows=pg_fetch_assoc($result))
   {
 	  
-    $usn= $rows['username'];
+    $usn= $rows['usn'];
     $sub= $rows['sub'];
     $class= $rows['class'];
     $classatt = $rows['classatt'];
