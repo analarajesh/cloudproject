@@ -88,7 +88,7 @@ padding: 10px 10px;
     background:blue;
 margin: 5px auto;
 padding: 10px;
-background:snow;
+background:#e1eff2;
 border-radius: 30px;
 font-family:  Georgia, Times New Roman, sans-serif;
 margin-left:26%;
