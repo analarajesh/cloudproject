@@ -28,7 +28,7 @@ if($usn!=''&&$password!='')
    $query="select * from sign where usn='".$usn."' and password='".$password."'";
    $res=pg_query($conn,$query);
    $count=pg_affected_rows($res);
-   if($res!=0)
+   if($count!=0)
    {
     $_SESSION['usn']=$usn;
   header('location:icon.php?usn='.$usn);
