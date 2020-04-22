@@ -28,7 +28,8 @@ if($email!=''&&$password!='')
  {
    $query="select * from alogin where email='".$email."' and psw='".$password."'";
    $res=pg_query($conn,$query);
-   if($res)
+   $count=pg_affected_rows($res);
+   if($count!=0)
    {
     $_SESSION['usn']=$usn;
    // header('location:add.php?usn='.$usn);
